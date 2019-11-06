@@ -1,4 +1,3 @@
-<html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -8,13 +7,13 @@
   </head>
   <body>    
   <script>
-    function init() {
-Tabletop.init( { key: ‘https://docs.google.com/spreadsheets/d/1pmbsUQtSV5D4eHPBZ5XDKwrXk3YlbrQIiTnhanNoSZk/edit?usp=sharing',
-callback: function(data, tabletop) {
-console.log(data)
-},
-simpleSheet: true } )
-}
-window.addEventListener(‘DOMContentLoaded’, init)
-</script>
+      function init() {
+      Tabletop.init( { key: ‘https://docs.google.com/spreadsheets/d/1pmbsUQtSV5D4eHPBZ5XDKwrXk3YlbrQIiTnhanNoSZk/edit?usp=sharing',
+      callback: function(data, tabletop) {
+      console.log(data)
+      },
+      simpleSheet: true } )
+      }
+      window.addEventListener(‘DOMContentLoaded’, init)
+    </script>
 </html>
