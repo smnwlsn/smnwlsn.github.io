@@ -6,9 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
   </head>
-  <body>
-    Results
-
+  <body>    
+    <template id="entry-template">
+        <div class="entry-container">
+          <div class="thumbnail">
+            <img src="https://dummyimage.com/150x150.png" alt="" />
+          </div>
+          <div class="content">
+            <div>
+              <div class="block">
+                <div class="tag">
+                  <h2>CODING</h2>
+                </div>
+              </div>
+              <h2 class="headline">
+                Build your own blog with Google Sheets as CMS and Tabletop.js
+              </h2>
+              <p class="publishedAt">May 11, 2019</p>
+              <p class="article">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
+                quisquam maxime, ab itaque, ratione consectetur, ea corporis
+                aspernatur doloribus quam alias? Maxime deserunt, optio itaque nam
+                quisquam eius doloribus fugiat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </template>
+      <section class="blog-container">
+        <div class="header">
+          <h1>Awesome Saucin' Blog.</h1>
+        </div>
+        <!-- <div class="entry-container">
+            <div class="thumbnail">
+            <img src="https://dummyimage.com/150x150.png" alt="" />
+            </div>
+            <div class="content">
+            <div>
+                <div class="block">
+                <div class="tag">
+                    <h2>CODING</h2>
+                </div>
+                </div>
+                <h2 class="headline">
+                Build your own blog with Google Sheets as CMS and Tabletop.js
+                </h2>
+                <p class="publishedAt">May 11, 2019</p>
+                <p class="article">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
+                quisquam maxime, ab itaque, ratione consectetur, ea corporis
+                aspernatur doloribus quam alias? Maxime deserunt, optio itaque nam
+                quisquam eius doloribus fugiat.
+                </p>
+            </div>
+            </div>
+        </div> -->
+        </section></body>
     
   </body>
 
@@ -17,15 +70,46 @@
     <script src="/toolbox.js"></script>
     <script>
         $(document).ready(function() {
-      console.log("Data from the Google Sheets db");
-      Tabletop.init({
-        key: 'https://docs.google.com/spreadsheets/d/1pmbsUQtSV5D4eHPBZ5XDKwrXk3YlbrQIiTnhanNoSZk/edit?usp=sharing',
-        callback: function(data, tabletop) {
-          console.log(data);
-          $("body").html(JSON.stringify(data));
-        },
-        simpleSheet: true
-      })
-    });
+          var publicSpreadsheetUrl =
+            "https://docs.google.com/spreadsheets/d/1pmbsUQtSV5D4eHPBZ5XDKwrXk3YlbrQIiTnhanNoSZk/edit?usp=sharing";
+
+          Tabletop.init({
+            key: publicSpreadsheetUrl,
+            callback: showInfo,
+            simpleSheet: true
+          });
+
+          function showInfo(data, tabletop) {
+            console.log(data);
+            var dt = data;
+            console.log(dt[1]["Category"]);
+
+            dt.forEach(ele => {
+              var blogEntryHTML = generateBlogEntry(ele);
+            });
+          }
+
+
+          function generateBlogEntry(blogContent) {
+            var imgURL = blogContent.imgURL;
+            var tag = blogContent.tag;
+            var headline = blogContent.headline;
+            var publishedAt = blogContent.publishedAt;
+            var article = blogContent.article;
+
+            var contents = $("#entry-template").html();
+            var a = $($.parseHTML(contents));
+
+            contents = a.find(".thumbnail img").attr("src", imgURL);
+            contents = a.find(".tag").text(tag);
+            contents = a.find(".headline").text(headline);
+            contents = a.find(".publishedAt").text(publishedAt);
+            contents = a.find(".article").text(article);
+
+            var entry = $('<div class="entry"></div>');
+            $(".blog-container").append(entry.append(a));
+          }
+        });
+
  </script>
 </html>
