@@ -91,7 +91,7 @@
 
           function generateBlogEntry(productContent) {
             var imgURL = productContent.imgURL;
-            var division = productContent.tag;
+            var division = productContent.division;
             var productName = productContent.productName;
             var publishedAt = productContent.publishedAt;
             var description = productContent.description;
