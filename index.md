@@ -99,7 +99,7 @@
             var contents = $("#entry-template").html();
             var a = $($.parseHTML(contents));
 
-            contents = a.find(".imgURL").attr("src", imgURL);
+            contents = a.find(".thumbnail img").attr("src", imgURL);
             contents = a.find(".division").text(division);
             contents = a.find(".productName").text(productName);
             contents = a.find(".publishedAt").text(publishedAt);
