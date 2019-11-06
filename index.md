@@ -15,7 +15,7 @@
           <div class="content">
             <div>
               <div class="block">
-                <div class="tag">
+                <div class="division">
                   <h2>CODING</h2>
                 </div>
               </div>
@@ -23,7 +23,7 @@
                 Build your own blog with Google Sheets as CMS and Tabletop.js
               </h2>
               <p class="publishedAt">May 11, 2019</p>
-              <p class="article">
+              <p class="description">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
                 quisquam maxime, ab itaque, ratione consectetur, ea corporis
                 aspernatur doloribus quam alias? Maxime deserunt, optio itaque nam
@@ -35,7 +35,7 @@
       </template>
       <section class="blog-container">
         <div class="header">
-          <h1>Awesome Saucin' Blog.</h1>
+          <h1>The Amazing Tool Kit.</h1>
         </div>
         <!-- <div class="entry-container">
             <div class="thumbnail">
@@ -44,7 +44,7 @@
             <div class="content">
             <div>
                 <div class="block">
-                <div class="tag">
+                <div class="division">
                     <h2>CODING</h2>
                 </div>
                 </div>
@@ -52,7 +52,7 @@
                 Build your own blog with Google Sheets as CMS and Tabletop.js
                 </h2>
                 <p class="publishedAt">May 11, 2019</p>
-                <p class="article">
+                <p class="description">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
                 quisquam maxime, ab itaque, ratione consectetur, ea corporis
                 aspernatur doloribus quam alias? Maxime deserunt, optio itaque nam
@@ -89,21 +89,21 @@
           }
 
 
-          function generateBlogEntry(blogContent) {
-            var imgURL = blogContent.imgURL;
-            var tag = blogContent.tag;
-            var productName = blogContent.productName;
-            var publishedAt = blogContent.publishedAt;
-            var article = blogContent.article;
+          function generateBlogEntry(productContent) {
+            var imgURL = productContent.imgURL;
+            var division = productContent.tag;
+            var productName = productContent.productName;
+            var publishedAt = productContent.publishedAt;
+            var description = productContent.description;
 
             var contents = $("#entry-template").html();
             var a = $($.parseHTML(contents));
 
             contents = a.find(".thumbnail img").attr("src", imgURL);
-            contents = a.find(".tag").text(tag);
+            contents = a.find(".division").text(division);
             contents = a.find(".productName").text(productName);
             contents = a.find(".publishedAt").text(publishedAt);
-            contents = a.find(".article").text(article);
+            contents = a.find(".description").text(description);
 
             var entry = $('<div class="entry"></div>');
             $(".blog-container").append(entry.append(a));
