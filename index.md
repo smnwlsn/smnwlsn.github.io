@@ -4,17 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script>
-      function init() {
-      Tabletop.init( { key: ‘https://docs.google.com/spreadsheets/d/2PACX-1vRPj5ANy-5hloo0kQoA2wkVXf1AJ9zOLy_QxvRJkJWrsnCO19T321Nx5yXwziQRlIbXhJWJUjCucqMD/pubhtml',
-      callback: function(data, tabletop) {
-      console.log(data)
-      },
-      simpleSheet: true } )
-      }
-      window.addEventListener(‘DOMContentLoaded’, init)
-    </script>
-
+    
     <title>Hello, world!</title>
   </head>
   <body>
