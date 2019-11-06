@@ -19,7 +19,7 @@
                   <h2>CODING</h2>
                 </div>
               </div>
-              <h2 class="headline">
+              <h2 class="productName">
                 Build your own blog with Google Sheets as CMS and Tabletop.js
               </h2>
               <p class="publishedAt">May 11, 2019</p>
@@ -48,7 +48,7 @@
                     <h2>CODING</h2>
                 </div>
                 </div>
-                <h2 class="headline">
+                <h2 class="productName">
                 Build your own blog with Google Sheets as CMS and Tabletop.js
                 </h2>
                 <p class="publishedAt">May 11, 2019</p>
@@ -61,8 +61,7 @@
             </div>
             </div>
         </div> -->
-        </section></body>
-    
+        </section>    
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -93,7 +92,7 @@
           function generateBlogEntry(blogContent) {
             var imgURL = blogContent.imgURL;
             var tag = blogContent.tag;
-            var headline = blogContent.headline;
+            var productName = blogContent.productName;
             var publishedAt = blogContent.publishedAt;
             var article = blogContent.article;
 
@@ -102,7 +101,7 @@
 
             contents = a.find(".thumbnail img").attr("src", imgURL);
             contents = a.find(".tag").text(tag);
-            contents = a.find(".headline").text(headline);
+            contents = a.find(".productName").text(productName);
             contents = a.find(".publishedAt").text(publishedAt);
             contents = a.find(".article").text(article);
 
